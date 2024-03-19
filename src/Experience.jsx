@@ -10,13 +10,18 @@ import {
 } from "@react-three/postprocessing";
 import { ToneMapping } from "@react-three/postprocessing";
 import { BlendFunction, GlitchMode } from "postprocessing";
-console.log(GlitchMode);
+import Drunk from "./Drunk";
+import { useRef } from "react";
+
 export default function Experience() {
+  const drunkRef = useRef();
+
   return (
     <>
       <color args={["#ffffff"]} attach="background" />
 
       <EffectComposer disableNormalPass>
+        <Drunk ref={drunkRef} frequency={2} amplitude={0.1} />
         {/* <Vignette
           offset={0.3}
           darkness={0.9}
@@ -30,11 +35,11 @@ export default function Experience() {
         /> */}
         {/* <Noise blendFunction={BlendFunction.SOFT_LIGHT} premultiply /> */}
         {/* <Bloom mipmapBlur luminanceThreshold={0} intensity={0.1} /> */}
-        <DepthOfField
+        {/* <DepthOfField
           focusDistance={0.025}
           focalLength={0.025}
           bokehScale={6}
-        />
+        /> */}
         <ToneMapping />
       </EffectComposer>
 
