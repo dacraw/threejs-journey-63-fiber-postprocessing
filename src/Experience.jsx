@@ -26,7 +26,11 @@ export default function Experience() {
       <color args={["#ffffff"]} attach="background" />
 
       <EffectComposer disableNormalPass>
-        <Drunk ref={drunkRef} {...drunkControls} />
+        <Drunk
+          ref={drunkRef}
+          {...drunkControls}
+          blendFunction={BlendFunction.DARKEN}
+        />
         {/* <Vignette
           offset={0.3}
           darkness={0.9}
