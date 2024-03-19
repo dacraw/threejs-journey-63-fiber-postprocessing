@@ -40,7 +40,7 @@ export default function Experience() {
           focalLength={0.025}
           bokehScale={6}
         /> */}
-        <ToneMapping />
+        {/* <ToneMapping /> */}
       </EffectComposer>
 
       <Perf position="top-left" />
