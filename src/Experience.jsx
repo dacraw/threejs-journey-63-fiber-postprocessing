@@ -28,7 +28,7 @@ export default function Experience() {
           mode={GlitchMode.CONSTANT_MILD}
         /> */}
         {/* <Noise blendFunction={BlendFunction.SOFT_LIGHT} premultiply /> */}
-        <Bloom mipmapBlur luminanceThreshold={1.1} />
+        <Bloom mipmapBlur luminanceThreshold={0} intensity={0.1} />
         <ToneMapping />
       </EffectComposer>
 
@@ -46,8 +46,8 @@ export default function Experience() {
 
       <mesh castShadow position-x={2} scale={1.5}>
         <boxGeometry />
-        {/* bloom effect relies on color value exceeding 1; play with color values to change effect */}
-        <meshStandardMaterial color={[1.5, 1, 4]} />
+        {/* this is only one example of playing with bloom effect; remember colors must be over 1 to see effect */}
+        <meshBasicMaterial color={[1.5 * 10, 1 * 10, 4 * 10]} />
       </mesh>
 
       <mesh
