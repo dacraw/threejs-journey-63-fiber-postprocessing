@@ -12,16 +12,21 @@ import { ToneMapping } from "@react-three/postprocessing";
 import { BlendFunction, GlitchMode } from "postprocessing";
 import Drunk from "./Drunk";
 import { useRef } from "react";
+import { useControls } from "leva";
 
 export default function Experience() {
   const drunkRef = useRef();
+  const drunkControls = useControls("drunk controls", {
+    amplitude: { value: 0.1, min: 0, max: 1.0 },
+    frequency: { value: 2, min: 0, max: 100 },
+  });
 
   return (
     <>
       <color args={["#ffffff"]} attach="background" />
 
       <EffectComposer disableNormalPass>
-        <Drunk ref={drunkRef} frequency={2} amplitude={0.1} />
+        <Drunk ref={drunkRef} {...drunkControls} />
         {/* <Vignette
           offset={0.3}
           darkness={0.9}
